@@ -12,13 +12,14 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <div class="logo">M<span class="dot">.</span>AI</div>
+      <div class="logo"><i data-lucide="cpu"></i>MUNTASIR<span class="dot">.</span>AI</div>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -28,7 +29,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#contact" class="nav-cta">Hire Me</a>
-      <button class="burger" id="burger">&#9776;</button>
+      <button class="burger" id="burger" aria-label="Toggle Menu"><i data-lucide="menu"></i></button>
     </div>
   </nav>
 
@@ -42,14 +43,14 @@
       <p class="hero-sub">Building intelligent systems with Deep Learning, LLMs &amp; No-Code Automation using n8n and
         Make.com</p>
       <div class="hero-tags">
-        <span>🤖 Machine Learning</span>
-        <span>🧠 Deep Learning</span>
-        <span>⚡ AI</span>
-        <span>🔗 LLMs</span>
+        <span><i data-lucide="brain"></i> Machine Learning</span>
+        <span><i data-lucide="layers"></i> Deep Learning</span>
+        <span><i data-lucide="zap"></i> AI Automation</span>
+        <span><i data-lucide="message-square"></i> LLMs</span>
       </div>
       <div class="hero-btns">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get In Touch</a>
+        <a href="#projects" class="btn-primary">View Projects <i data-lucide="arrow-right"></i></a>
+        <a href="#" class="btn-outline">Download CV <i data-lucide="download"></i></a>
       </div>
       <div class="hero-stats">
         <div class="stat"><span class="stat-num" data-target="30">0</span>+<p>ML Projects</p>
@@ -133,7 +134,7 @@
       <h2 class="section-title">Skills &amp; <span class="gradient-text">Technologies</span></h2>
       <div class="skills-grid">
         <div class="skill-category">
-          <div class="skill-cat-header"><span>🤖</span> Machine Learning</div>
+          <div class="skill-cat-header"><i data-lucide="bar-chart-2"></i> Machine Learning</div>
           <div class="skill-items">
             <div class="skill-pill">Scikit-learn</div>
             <div class="skill-pill">XGBoost</div>
@@ -147,7 +148,7 @@
           </div>
         </div>
         <div class="skill-category">
-          <div class="skill-cat-header"><span>🧠</span> Deep Learning</div>
+          <div class="skill-cat-header"><i data-lucide="brain-circuit"></i> Deep Learning</div>
           <div class="skill-items">
             <div class="skill-pill">PyTorch</div>
             <div class="skill-pill">TensorFlow</div>
@@ -161,7 +162,7 @@
           </div>
         </div>
         <div class="skill-category">
-          <div class="skill-cat-header"><span>💬</span> LLMs &amp; NLP</div>
+          <div class="skill-cat-header"><i data-lucide="message-square"></i> LLMs &amp; NLP</div>
           <div class="skill-items">
             <div class="skill-pill">LangChain</div>
             <div class="skill-pill">RAG Pipelines</div>
@@ -175,7 +176,7 @@
           </div>
         </div>
         <div class="skill-category">
-          <div class="skill-cat-header"><span>⚡</span> n8n Automation</div>
+          <div class="skill-cat-header"><i data-lucide="zap"></i> n8n Automation</div>
           <div class="skill-items">
             <div class="skill-pill">Custom Nodes</div>
             <div class="skill-pill">AI Agents</div>
@@ -189,7 +190,7 @@
           </div>
         </div>
         <div class="skill-category">
-          <div class="skill-cat-header"><span>🔗</span> Make.com</div>
+          <div class="skill-cat-header"><i data-lucide="link"></i> Make.com</div>
           <div class="skill-items">
             <div class="skill-pill">Scenario Builder</div>
             <div class="skill-pill">Data Routers</div>
@@ -203,7 +204,7 @@
           </div>
         </div>
         <div class="skill-category">
-          <div class="skill-cat-header"><span>🛠️</span> MLOps &amp; DevOps</div>
+          <div class="skill-cat-header"><i data-lucide="settings"></i> MLOps &amp; DevOps</div>
           <div class="skill-items">
             <div class="skill-pill">Docker</div>
             <div class="skill-pill">FastAPI</div>
@@ -226,163 +227,165 @@
       <div class="section-label">Portfolio</div>
       <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
       <div class="projects-grid">
-        <div class="project-card featured">
-          <div class="project-glow"></div>
+        <div class="project-card">
           <div class="project-thumbnail">
             <img src="assets/projects/intelliq.png" alt="IntelliQ Multi-Agent Platform">
+            <div class="project-overlay"></div>
           </div>
-          <div class="project-top">
-            <span class="project-badge">Featured</span>
-            <div class="project-links">
-              <a href="https://github.com/mars01hash/IntelliQ" target="_blank" class="github-link">
-                <span class="icon">⬡</span> Source Code
-              </a>
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-badge">Featured</span>
+              <div class="project-links">
+                <a href="https://github.com/mars01hash/IntelliQ" target="_blank" class="github-link">
+                  <i data-lucide="github"></i> Source
+                </a>
+              </div>
             </div>
-          </div>
-          <h3>IntelliQ Multi-Agent Platform</h3>
-          <p>Advanced multi-agent orchestration platform for Product Managers. Automates market research, backlog
-            prioritization, and PRD generation using coordinated AI agents.</p>
-          <div class="project-tags">
-            <span>Python</span><span>OpenAI</span><span>LangChain</span><span>Multi-Agent</span><span>Streamlit</span>
+            <h3>IntelliQ Platform</h3>
+            <p>Advanced multi-agent orchestration for Product Managers. Automates research and PRD generation.</p>
+            <div class="project-tags">
+              <span>Python</span><span>OpenAI</span><span>LangChain</span>
+            </div>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-glow"></div>
           <div class="project-thumbnail">
             <img src="assets/projects/reasonpath.png" alt="ReasonPath AI QA Agent">
+            <div class="project-overlay"></div>
           </div>
-          <div class="project-top">
-            <span class="project-badge badge-auto">Automation</span>
-            <div class="project-links">
-              <a href="https://github.com/mars01hash/ReasonPath" target="_blank" class="github-link">
-                <span class="icon">⬡</span> Source Code
-              </a>
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-badge">Automation</span>
+              <div class="project-links">
+                <a href="https://github.com/mars01hash/ReasonPath" target="_blank" class="github-link">
+                  <i data-lucide="github"></i> Source
+                </a>
+              </div>
             </div>
+            <h3>ReasonPath AI QA</h3>
+            <p>AI-driven QA automation agent that leverages LLMs to identify and fix broken test scenarios.</p>
+            <div class="project-tags"><span>TypeScript</span><span>Playwright</span><span>LLMs</span></div>
           </div>
-          <h3>ReasonPath AI QA Agent</h3>
-          <p>AI-driven QA automation agent that leverages LLMs to identify, document, and fix broken test scenarios
-            autonomously, reducing maintenance overhead.</p>
-          <div class="project-tags"><span>TypeScript</span><span>Playwright</span><span>LLMs</span><span>QA
-              Automation</span></div>
         </div>
 
         <div class="project-card">
-          <div class="project-glow"></div>
           <div class="project-thumbnail">
-            <img src="assets/projects/retrievai.png" alt="RetrievAI Decision Assistant">
+            <img src="assets/projects/retrievai.png" alt="RetrievAI Assistant">
+            <div class="project-overlay"></div>
           </div>
-          <div class="project-top">
-            <span class="project-badge badge-llm">LLM / RAG</span>
-            <div class="project-links">
-              <a href="https://github.com/mars01hash/RetrievAI" target="_blank" class="github-link">
-                <span class="icon">⬡</span> Source Code
-              </a>
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-badge">LLM / RAG</span>
+              <div class="project-links">
+                <a href="https://github.com/mars01hash/RetrievAI" target="_blank" class="github-link">
+                  <i data-lucide="github"></i> Source
+                </a>
+              </div>
             </div>
+            <h3>RetrievAI Assistant</h3>
+            <p>RAG-based AI assistant for performance analysis using custom knowledge bases and Gemini API.</p>
+            <div class="project-tags"><span>Python</span><span>LangChain</span><span>Vector DB</span></div>
           </div>
-          <h3>RetrievAI Decision Assistant</h3>
-          <p>RAG-based AI assistant for volleyball athletes, providing strategic advice and performance analysis using
-            custom knowledge bases and Gemini API.</p>
-          <div class="project-tags"><span>Python</span><span>RAG</span><span>LangChain</span><span>Gemini
-              API</span><span>Vector DB</span></div>
         </div>
 
         <div class="project-card">
-          <div class="project-glow"></div>
           <div class="project-thumbnail">
             <img src="assets/projects/competeiq.png" alt="CompeteIQ Market Intel">
+            <div class="project-overlay"></div>
           </div>
-          <div class="project-top">
-            <span class="project-badge">ML Analysis</span>
-            <div class="project-links">
-              <a href="https://github.com/mars01hash/CompeteIQ" target="_blank" class="github-link">
-                <span class="icon">⬡</span> Source Code
-              </a>
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-badge">ML Analysis</span>
+              <div class="project-links">
+                <a href="https://github.com/mars01hash/CompeteIQ" target="_blank" class="github-link">
+                  <i data-lucide="github"></i> Source
+                </a>
+              </div>
             </div>
+            <h3>CompeteIQ Intel</h3>
+            <p>Intelligent competitive analysis platform that scrapes market data and generates strategic insights.</p>
+            <div class="project-tags"><span>Python</span><span>Scrapy</span><span>GPT-4</span></div>
           </div>
-          <h3>CompeteIQ Market Intel</h3>
-          <p>Intelligent competitive analysis platform that scrapes market data and generates actionable strategic
-            insights using Generative AI models.</p>
-          <div class="project-tags"><span>Python</span><span>Scrapy</span><span>GPT-4</span><span>Data Viz</span></div>
         </div>
 
         <div class="project-card">
-          <div class="project-glow"></div>
           <div class="project-thumbnail">
             <img src="assets/projects/bangla_lstm.png" alt="Bangla Literary LSTM">
+            <div class="project-overlay"></div>
           </div>
-          <div class="project-top">
-            <span class="project-badge badge-ml">Deep Learning</span>
-            <div class="project-links">
-              <a href="https://github.com/mars01hash/Bangla_LSTM" target="_blank" class="github-link">
-                <span class="icon">⬡</span> Source Code
-              </a>
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-badge">Deep Learning</span>
+              <div class="project-links">
+                <a href="https://github.com/mars01hash/Bangla_LSTM" target="_blank" class="github-link">
+                  <i data-lucide="github"></i> Source
+                </a>
+              </div>
             </div>
-          </div>
-          <h3>Bangla Literary LSTM</h3>
-          <p>Deep learning text generator trained on Rabindranath Tagore's works using a character-level LSTM in PyTorch
-            to capture complex script dependencies.</p>
-          <div class="project-tags"><span>PyTorch</span><span>LSTM</span><span>Deep Learning</span><span>Bangla
-              NLP</span></div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-glow"></div>
-          <div class="project-thumbnail">
-            <img src="assets/projects/mlops_segmenter.png" alt="MLOps Customer Segmenter">
-          </div>
-          <div class="project-top">
-            <span class="project-badge badge-auto">MLOps</span>
-            <div class="project-links">
-              <a href="https://github.com/mars01hash/Customer_Segmentation" target="_blank" class="github-link">
-                <span class="icon">⬡</span> Source Code
-              </a>
-            </div>
-          </div>
-          <h3>MLOps Customer Segmenter</h3>
-          <p>Sophisticated customer segmentation application with a full MLOps pipeline for automated data ingestion,
-            validation, training, and deployment readiness.</p>
-          <div class="project-tags"><span>MLOps</span><span>Scikit-learn</span><span>Pipelines</span><span>Pandas</span>
+            <h3>Bangla LSTM</h3>
+            <p>Deep learning text generator trained on Rabindranath Tagore's works using PyTorch.</p>
+            <div class="project-tags"><span>PyTorch</span><span>LSTM</span><span>NLP</span></div>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-glow"></div>
           <div class="project-thumbnail">
-            <img src="assets/projects/eduforecaster.png" alt="EduForecaster ML App">
+            <img src="assets/projects/mlops_segmenter.png" alt="MLOps Segmenter">
+            <div class="project-overlay"></div>
           </div>
-          <div class="project-top">
-            <span class="project-badge badge-ml">Predictive AI</span>
-            <div class="project-links">
-              <a href="https://github.com/mars01hash/EduForecaster" target="_blank" class="github-link">
-                <span class="icon">⬡</span> Source Code
-              </a>
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-badge">MLOps</span>
+              <div class="project-links">
+                <a href="https://github.com/mars01hash/Customer_Segmentation" target="_blank" class="github-link">
+                  <i data-lucide="github"></i> Source
+                </a>
+              </div>
             </div>
-          </div>
-          <h3>EduForecaster ML App</h3>
-          <p>End-to-end ML application predicting student performance using CatBoost, featuring a Flask web interface
-            and AWS deployment configuration.</p>
-          <div class="project-tags"><span>CatBoost</span><span>Flask</span><span>AWS</span><span>ML Pipeline</span>
+            <h3>MLOps Segmenter</h3>
+            <p>Customer segmentation with full MLOps pipeline for automated training and deployment.</p>
+            <div class="project-tags"><span>MLOps</span><span>Scikit-learn</span><span>Docker</span></div>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-glow"></div>
           <div class="project-thumbnail">
-            <img src="assets/projects/docuquery.png" alt="DocuQueryAI Tool">
+            <img src="assets/projects/eduforecaster.png" alt="EduForecaster">
+            <div class="project-overlay"></div>
           </div>
-          <div class="project-top">
-            <span class="project-badge badge-llm">NLP</span>
-            <div class="project-links">
-              <a href="https://github.com/mars01hash/DocuQueryAI" target="_blank" class="github-link">
-                <span class="icon">⬡</span> Source Code
-              </a>
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-badge">Predictive AI</span>
+              <div class="project-links">
+                <a href="https://github.com/mars01hash/EduForecaster" target="_blank" class="github-link">
+                  <i data-lucide="github"></i> Source
+                </a>
+              </div>
             </div>
+            <h3>EduForecaster</h3>
+            <p>ML application predicting student performance using CatBoost and AWS deployment.</p>
+            <div class="project-tags"><span>CatBoost</span><span>Flask</span><span>AWS</span></div>
           </div>
-          <h3>DocuQueryAI Tool</h3>
-          <p>Intelligent NLP tool for high-accuracy text extraction and query-based analysis of complex PDF documents
-            using Transformer models.</p>
-          <div class="project-tags"><span>Python</span><span>NLP</span><span>Transformers</span><span>PyMuPDF</span>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumbnail">
+            <img src="assets/projects/docuquery.png" alt="DocuQueryAI">
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-badge">NLP</span>
+              <div class="project-links">
+                <a href="https://github.com/mars01hash/DocuQueryAI" target="_blank" class="github-link">
+                  <i data-lucide="github"></i> Source
+                </a>
+              </div>
+            </div>
+            <h3>DocuQueryAI</h3>
+            <p>Intelligent NLP tool for high-accuracy text extraction from complex PDF documents.</p>
+            <div class="project-tags"><span>Transformers</span><span>PyMuPDF</span><span>Python</span></div>
           </div>
         </div>
       </div>
@@ -408,11 +411,11 @@
                 <h3>Self-Hosted Power</h3>
               </div>
               <ul class="auto-list">
-                <li>✓ AI Agent Pipelines</li>
-                <li>✓ Webhook-triggered flows</li>
-                <li>✓ Custom JavaScript nodes</li>
-                <li>✓ Docker self-hosting</li>
-                <li>✓ Error handling & retries</li>
+                <li><i data-lucide="check-circle"></i> AI Agent Pipelines</li>
+                <li><i data-lucide="check-circle"></i> Webhook-triggered flows</li>
+                <li><i data-lucide="check-circle"></i> Custom JavaScript nodes</li>
+                <li><i data-lucide="check-circle"></i> Docker self-hosting</li>
+                <li><i data-lucide="check-circle"></i> Error handling & retries</li>
               </ul>
               <div class="auto-stat">50+ Workflows Built</div>
             </div>
@@ -423,11 +426,11 @@
                 <h3>Cloud Orchestration</h3>
               </div>
               <ul class="auto-list">
-                <li>✓ Complex data routing</li>
-                <li>✓ Multi-app integrations</li>
-                <li>✓ Scheduled scenarios</li>
-                <li>✓ HTTP/API modules</li>
-                <li>✓ Data transformation</li>
+                <li><i data-lucide="check-circle"></i> Complex data routing</li>
+                <li><i data-lucide="check-circle"></i> Multi-app integrations</li>
+                <li><i data-lucide="check-circle"></i> Scheduled scenarios</li>
+                <li><i data-lucide="check-circle"></i> HTTP/API modules</li>
+                <li><i data-lucide="check-circle"></i> Data transformation</li>
               </ul>
               <div class="auto-stat">30+ Scenarios Built</div>
             </div>
@@ -437,11 +440,11 @@
           <div class="flow-title">Sample AI-Driven Pipeline</div>
           <div class="flow-nodes">
             <div class="flow-node trigger">📥 Trigger</div>
-            <div class="flow-arrow">→</div>
+            <div class="flow-arrow"><i data-lucide="arrow-right"></i></div>
             <div class="flow-node process">🤖 AI Parse</div>
-            <div class="flow-arrow">→</div>
+            <div class="flow-arrow"><i data-lucide="arrow-right"></i></div>
             <div class="flow-node decision">🔀 Router</div>
-            <div class="flow-arrow">→</div>
+            <div class="flow-arrow"><i data-lucide="arrow-right"></i></div>
             <div class="flow-node action">📤 Action</div>
           </div>
           <div class="flow-desc">Webhook → LLM Processing → Conditional Routing → Multi-channel Output</div>
@@ -453,10 +456,8 @@
   <!-- TECH STACK TICKER -->
   <div class="ticker-wrap">
     <div class="ticker">
-      <span>Python</span><span>•</span><span>PyTorch</span><span>•</span><span>TensorFlow</span><span>•</span><span>LangChain</span><span>•</span><span>n8n</span><span>•</span><span>Make.com</span><span>•</span><span>FastAPI</span><span>•</span><span>Docker</span><span>•</span><span>PostgreSQL</span><span>•</span><span>OpenAI</span><span>•</span><span>Hugging
-        Face</span><span>•</span><span>MLflow</span><span>•</span><span>React</span><span>•</span><span>Scikit-learn</span><span>•</span><span>YOLOv8</span><span>•</span>
-      <span>Python</span><span>•</span><span>PyTorch</span><span>•</span><span>TensorFlow</span><span>•</span><span>LangChain</span><span>•</span><span>n8n</span><span>•</span><span>Make.com</span><span>•</span><span>FastAPI</span><span>•</span><span>Docker</span><span>•</span><span>PostgreSQL</span><span>•</span><span>OpenAI</span><span>•</span><span>Hugging
-        Face</span><span>•</span><span>MLflow</span><span>•</span><span>React</span><span>•</span><span>Scikit-learn</span><span>•</span><span>YOLOv8</span><span>•</span>
+      <span>Python</span><span>•</span><span>PyTorch</span><span>•</span><span>TensorFlow</span><span>•</span><span>LangChain</span><span>•</span><span>OpenAI</span><span>•</span><span>Hugging Face</span><span>•</span><span>n8n</span><span>•</span><span>Make.com</span><span>•</span><span>FastAPI</span><span>•</span><span>Docker</span><span>•</span><span>PostgreSQL</span><span>•</span><span>MLflow</span><span>•</span><span>Scikit-learn</span><span>•</span><span>YOLOv8</span><span>•</span><span>Pandas</span><span>•</span><span>NumPy</span><span>•</span><span>AWS</span><span>•</span>
+      <span>Python</span><span>•</span><span>PyTorch</span><span>•</span><span>TensorFlow</span><span>•</span><span>LangChain</span><span>•</span><span>OpenAI</span><span>•</span><span>Hugging Face</span><span>•</span><span>n8n</span><span>•</span><span>Make.com</span><span>•</span><span>FastAPI</span><span>•</span><span>Docker</span><span>•</span><span>PostgreSQL</span><span>•</span><span>MLflow</span><span>•</span><span>Scikit-learn</span><span>•</span><span>YOLOv8</span><span>•</span><span>Pandas</span><span>•</span><span>NumPy</span><span>•</span><span>AWS</span><span>•</span>
     </div>
   </div>
 
@@ -470,20 +471,20 @@
           <p class="contact-intro">Looking to build AI-powered systems or automate your business workflows? Let's talk.
           </p>
           <div class="contact-links">
-            <a href="mailto:[muntasir.ais01@gmail.com]" class="contact-link">
-              <span class="contact-icon">✉️</span>
+            <a href="mailto:muntasir.ais01@gmail.com" class="contact-link">
+              <span class="contact-icon"><i data-lucide="mail"></i></span>
               <div><strong>Email</strong>
                 <p>muntasir.ais01@gmail.com</p>
               </div>
             </a>
             <a href="https://linkedin.com" class="contact-link" target="_blank">
-              <span class="contact-icon">💼</span>
+              <span class="contact-icon"><i data-lucide="linkedin"></i></span>
               <div><strong>LinkedIn</strong>
                 <p>linkedin.com/in/muntasir</p>
               </div>
             </a>
             <a href="https://github.com/mars01hash" class="contact-link" target="_blank">
-              <span class="contact-icon">⬡</span>
+              <span class="contact-icon"><i data-lucide="github"></i></span>
               <div><strong>GitHub</strong>
                 <p>github.com/mars01hash</p>
               </div>
@@ -495,16 +496,16 @@
         </div>
         <form class="contact-form" id="contactForm">
           <div class="form-group">
-            <input type="text" id="name" placeholder="Your Name" required />
+            <input type="text" id="name" placeholder=" " required />
             <label for="name">Your Name</label>
           </div>
           <div class="form-group">
-            <input type="email" id="email" placeholder="Email Address" required />
+            <input type="email" id="email" placeholder=" " required />
             <label for="email">Email Address</label>
           </div>
           <div class="form-group">
-            <select id="service">
-              <option value="">Select a Service</option>
+            <select id="service" required>
+              <option value="" disabled selected hidden></option>
               <option>ML Model Development</option>
               <option>Deep Learning Project</option>
               <option>n8n Workflow Automation</option>
@@ -512,12 +513,13 @@
               <option>LLM / RAG Application</option>
               <option>Full AI System Build</option>
             </select>
+            <label for="service">Select a Service</label>
           </div>
           <div class="form-group">
-            <textarea id="message" rows="4" placeholder="Tell me about your project..."></textarea>
-            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder=" " required></textarea>
+            <label for="message">Tell me about your project...</label>
           </div>
-          <button type="submit" class="btn-primary btn-full">Send Message ✈️</button>
+          <button type="submit" class="btn-primary btn-full">Send Message <i data-lucide="send"></i></button>
         </form>
       </div>
     </div>
@@ -527,8 +529,8 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div class="logo">M<span class="dot">.</span>AI</div>
-        <p>© 2026 Muntasir · AI/ML Engineer &amp; Automation Architect</p>
+        <div class="logo"><i data-lucide="cpu"></i>MUNTASIR<span class="dot">.</span>AI</div>
+        <p>© 2026 Muntasir · AI/ML Engineer</p>
         <div class="footer-links">
           <a href="#hero">Home</a>
           <a href="#projects">Projects</a>

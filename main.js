@@ -1,3 +1,8 @@
+// ── Initialization ───────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+});
+
 // ── Neural Canvas Animation ──────────────────────────────────────
 const canvas = document.getElementById('neuralCanvas');
 const ctx = canvas.getContext('2d');
@@ -27,10 +32,10 @@ initNodes();
 
 function drawCanvas() {
   ctx.clearRect(0, 0, W, H);
-  // Background gradient
+  // Background gradient matching design tokens
   const bg = ctx.createLinearGradient(0, 0, W, H);
-  bg.addColorStop(0, '#050818');
-  bg.addColorStop(1, '#0a0f2e');
+  bg.addColorStop(0, '#030614');
+  bg.addColorStop(1, '#050a24');
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, W, H);
 
@@ -57,15 +62,7 @@ function drawCanvas() {
     ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
     ctx.fillStyle = 'rgba(99,102,241,0.7)';
     ctx.fill();
-    // Glow
-    const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
-    grd.addColorStop(0, 'rgba(99,102,241,0.3)');
-    grd.addColorStop(1, 'transparent');
-    ctx.fillStyle = grd;
-    ctx.beginPath();
-    ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2);
-    ctx.fill();
-
+    
     n.x += n.vx;
     n.y += n.vy;
     if (n.x < 0 || n.x > W) n.vx *= -1;
@@ -76,36 +73,33 @@ function drawCanvas() {
 }
 drawCanvas();
 
-// Mouse interaction
-window.addEventListener('mousemove', e => {
-  nodes.forEach(n => {
-    const dx = e.clientX - n.x;
-    const dy = e.clientY - n.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 120) {
-      n.vx -= dx * 0.0003;
-      n.vy -= dy * 0.0003;
-    }
-  });
-});
-
-// ── Navbar scroll ─────────────────────────────────────────────────
+// ── Navbar scroll & Burger ────────────────────────────────────────
 const navbar = document.getElementById('navbar');
+const burger = document.getElementById('burger');
+const navLinks = document.querySelector('.nav-links');
+
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// ── Burger menu ───────────────────────────────────────────────────
-const burger = document.getElementById('burger');
-const navLinks = document.querySelector('.nav-links');
 burger.addEventListener('click', () => {
-  navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-  if (navLinks.style.display === 'flex') {
-    navLinks.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(5,8,24,.98);backdrop-filter:blur(20px);padding:20px;border-bottom:1px solid #1e293b';
+  navLinks.classList.toggle('active');
+  const icon = burger.querySelector('i');
+  if (navLinks.classList.contains('active')) {
+    icon.setAttribute('data-lucide', 'x');
+  } else {
+    icon.setAttribute('data-lucide', 'menu');
   }
+  lucide.createIcons();
 });
+
 document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => { navLinks.style.display = 'none'; });
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    const icon = burger.querySelector('i');
+    icon.setAttribute('data-lucide', 'menu');
+    lucide.createIcons();
+  });
 });
 
 // ── Counter animation ─────────────────────────────────────────────
@@ -122,7 +116,7 @@ function animateCounters() {
   });
 }
 
-// ── Skill bars on scroll ──────────────────────────────────────────
+// ── Skill bars animation ──────────────────────────────────────────
 function animateSkillBars() {
   document.querySelectorAll('.skill-bar').forEach(bar => {
     bar.style.width = bar.dataset.w + '%';
@@ -130,53 +124,45 @@ function animateSkillBars() {
 }
 
 // ── Intersection Observer ──────────────────────────────────────────
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      if (e.target.id === 'hero') animateCounters();
-      if (e.target.id === 'skills') animateSkillBars();
-      io.unobserve(e.target);
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -10% 0px' };
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      
+      // Trigger specific animations
+      if (entry.target.id === 'hero') animateCounters();
+      if (entry.target.id === 'skills') animateSkillBars();
+      
+      // Update Active Link
+      const id = entry.target.getAttribute('id');
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
     }
   });
-}, { threshold: 0.08 });
+}, observerOptions);
 
-// Observe all sections for skill bars / counters; fade handled separately
-document.querySelectorAll('section').forEach(s => io.observe(s));
-
-// ── Section fade-in ───────────────────────────────────────────────
-const style = document.createElement('style');
-style.textContent = `
-  section.fade-section { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
-  section.fade-section.visible { opacity: 1; transform: none; }
-`;
-document.head.appendChild(style);
-// Apply fade to non-hero sections
-document.querySelectorAll('section:not(#hero)').forEach(s => s.classList.add('fade-section'));
+document.querySelectorAll('section').forEach(section => {
+  section.classList.add('fade-in-section');
+  observer.observe(section);
+});
 
 // ── Contact form ──────────────────────────────────────────────────
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = this.querySelector('button[type=submit]');
-  btn.textContent = '✅ Message Sent!';
-  btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+  const originalContent = btn.innerHTML;
+  
+  btn.innerHTML = 'Message Sent! <i data-lucide="check"></i>';
+  btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+  lucide.createIcons();
+  
   setTimeout(() => {
-    btn.textContent = 'Send Message ✈️';
+    btn.innerHTML = originalContent;
     btn.style.background = '';
     this.reset();
+    lucide.createIcons();
   }, 3000);
-});
-
-// ── Smooth active nav link ────────────────────────────────────────
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY + 100;
-  sections.forEach(sec => {
-    const top = sec.offsetTop, h = sec.offsetHeight;
-    const link = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
-    if (link) {
-      if (scrollY >= top && scrollY < top + h) link.style.color = '#6366f1';
-      else link.style.color = '';
-    }
-  });
 });
